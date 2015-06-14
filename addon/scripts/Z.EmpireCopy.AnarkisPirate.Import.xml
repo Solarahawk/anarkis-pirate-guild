@@ -1,0 +1,4053 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>Z.EmpireCopy.AnarkisPirate.Import</name>
+	<version>418</version>
+	<engineversion>50</engineversion>
+	<description>Description</description>
+	<arguments>
+		<argument index="1" name="Name" type="Var/String" desc="Name" />
+		<argument index="2" name="FileNumber" type="Var/Number" desc="FileNumber" />
+		<argument index="3" name="PageNumber" type="Var/Number" desc="PageNumber" />
+	</arguments>
+	<sourcetext>
+		<line linenr="001" indent="" />
+		<line linenr="002" indent="">
+			<var>$ExportVersion</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'17'</text>
+		</line>
+		<line linenr="003" indent="" />
+		<line linenr="004" indent="">
+			<text>load</text>
+			<text> </text>
+			<text>text</text>
+			<text>:</text>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<var>$FileNumber</var>
+		</line>
+		<line linenr="005" indent="" />
+		<line linenr="006" indent="">
+			<var>$SubIndex</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>1</var>
+		</line>
+		<line linenr="007" indent="" />
+		<line linenr="008" indent="" />
+		<line linenr="009" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="010" indent="">
+			<comment>* LU Version</comment>
+		</line>
+		<line linenr="011" indent="" />
+		<line linenr="012" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="013" indent="">
+			<comment>* Export Version</comment>
+		</line>
+		<line linenr="014" indent="" />
+		<line linenr="015" indent="" />
+		<line linenr="016" indent="">
+			<comment>* Do stuff between these lines.  Don't change anything outside of these lines</comment>
+		</line>
+		<line linenr="017" indent="">
+			<comment>* Rename this file with the same format, replacing Template with the Name you registered in the setup.Ei.XX</comment>
+		</line>
+		<line linenr="018" indent="">
+			<comment>* ======================================</comment>
+		</line>
+		<line linenr="019" indent="" />
+		<line linenr="020" indent="">
+			<comment>* Global variables</comment>
+		</line>
+		<line linenr="021" indent="">
+			<var>$Key.Anarkis.Pirate.ImportRun</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Anarkis.Pirate.ImportRun'</text>
+		</line>
+		<line linenr="022" indent="">
+			<var>$Key.Anarkis.Pirate.ImportData</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Anarkis.Pirate.ImportData'</text>
+		</line>
+		<line linenr="023" indent="" />
+		<line linenr="024" indent="">
+			<var>$Key.Anarkis.Debug</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'anarkis.debug'</text>
+		</line>
+		<line linenr="025" indent="">
+			<comment>* $Key.Anarkis.Pirate.Plugin = 'anarkis.pirate.plugin'</comment>
+		</line>
+		<line linenr="026" indent="">
+			<var>$Key.Anarkis.Pirate.Setup</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'anarkis.pirate.setup'</text>
+		</line>
+		<line linenr="027" indent="">
+			<var>$Key.Anarkis.Pirate.Kcnt</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'anarkis.kcnt.pirate'</text>
+		</line>
+		<line linenr="028" indent="" />
+		<line linenr="029" indent="">
+			<var>$Key.Anarkis.ACC.Plugin</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'anarkis.acc.plugin'</text>
+		</line>
+		<line linenr="030" indent="">
+			<comment>* $Key.Anarkis.ADS.Setup = 'anarkis.ads.setup'</comment>
+		</line>
+		<line linenr="031" indent="" />
+		<line linenr="032" indent="">
+			<comment>* PG local object variables</comment>
+		</line>
+		<line linenr="033" indent="">
+			<var>$Key.Anarkis.Pirate.Additional.Shields</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'anarkis.pirate.additional.shields'</text>
+		</line>
+		<line linenr="034" indent="">
+			<var>$Key.Anarkis.Pirate.Boss</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'anarkis.pirate.boss'</text>
+		</line>
+		<line linenr="035" indent="">
+			<var>$Key.Anarkis.Pirate.Fine</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'anarkis.pirate.fine'</text>
+		</line>
+		<line linenr="036" indent="">
+			<var>$Key.Anarkis.Pirate.ForgetDate</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'anarkis.pirate.forgetdate'</text>
+		</line>
+		<line linenr="037" indent="">
+			<comment>* $Key.Anarkis.Pirate.Init.Rel = 'anarkis.pirate.init.rel'</comment>
+		</line>
+		<line linenr="038" indent="">
+			<comment>* $Key.Anarkis.Pirate.Old.Rel = 'anarkis.pirate.old.rel'</comment>
+		</line>
+		<line linenr="039" indent="">
+			<comment>* $Key.Anarkis.Pirate.OldName = 'anarkis.pirate.oldname'</comment>
+		</line>
+		<line linenr="040" indent="">
+			<var>$Key.Anarkis.Pirate.PleasureDome</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'anarkis.pirate.pleasuredome'</text>
+		</line>
+		<line linenr="041" indent="">
+			<var>$Key.Anarkis.Pirate.Reward</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'anarkis.pirate.reward'</text>
+		</line>
+		<line linenr="042" indent="" />
+		<line linenr="043" indent="">
+			<comment>* Other local object variables</comment>
+		</line>
+		<line linenr="044" indent="">
+			<comment>* $Key.Anarkis.ADS.Delay.Stop.ETA = 'anarkis.ads.delay.stop.eta'</comment>
+		</line>
+		<line linenr="045" indent="">
+			<var>$Key.Anarkis.Money</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'anarkis.money'</text>
+		</line>
+		<line linenr="046" indent="" />
+		<line linenr="047" indent="" />
+		<line linenr="048" indent="">
+			<text>display</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>box</text>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text> </text>
+			<text>'Begin Anarkis Pirate Guild Import'</text>
+			<text>,</text>
+			<text> </text>
+			<text>icon</text>
+			<text>=</text>
+			<text> </text>
+			<var>77</var>
+			<text>,</text>
+			<text> </text>
+			<text>timeout</text>
+			<text>=</text>
+			<text> </text>
+			<var>31000</var>
+			<text>,</text>
+			<text> </text>
+			<text>fadeout</text>
+			<text>=</text>
+			<text> </text>
+			<var>32000</var>
+		</line>
+		<line linenr="049" indent="">
+			<text>set</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'Anarkis.Pirate.ImportRun'</text>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>[TRUE]</var>
+		</line>
+		<line linenr="050" indent="" />
+		<line linenr="051" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="052" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="053" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="054" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="055" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="056" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="057" indent="">
+			<comment>* BEGIN: Import Global Data, No Object Reliance</comment>
+		</line>
+		<line linenr="058" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="059" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="060" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="061" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="062" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="063" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="064" indent="" />
+		<line linenr="065" indent="">
+			<comment>* Set Anarkis Debug mode</comment>
+		</line>
+		<line linenr="066" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="067" indent="">
+			<text>set</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<var>$Key.Anarkis.Debug</var>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>$Text</var>
+		</line>
+		<line linenr="068" indent="" />
+		<line linenr="069" indent="" />
+		<line linenr="070" indent="">
+			<var>$PirateGuildData</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>alloc</text>
+			<text>:</text>
+			<text> </text>
+			<text>size</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="071" indent="" />
+		<line linenr="072" indent="">
+			<comment>* PG plugin version</comment>
+		</line>
+		<line linenr="073" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="074" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="075" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="076" indent="" />
+		<line linenr="077" indent="">
+			<comment>* 1 - page.id</comment>
+		</line>
+		<line linenr="078" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="079" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="080" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="081" indent="" />
+		<line linenr="082" indent="">
+			<comment>* 2 - enabled</comment>
+		</line>
+		<line linenr="083" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="084" indent="">
+			<comment>* $Text = string $Text to integer</comment>
+		</line>
+		<line linenr="085" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="086" indent="" />
+		<line linenr="087" indent="">
+			<comment>* 3 - Guild Strength</comment>
+		</line>
+		<line linenr="088" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="089" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="090" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="091" indent="" />
+		<line linenr="092" indent="">
+			<comment>* 4 - Ships per base</comment>
+		</line>
+		<line linenr="093" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="094" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="095" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="096" indent="" />
+		<line linenr="097" indent="">
+			<comment>* 5 - Base timer</comment>
+		</line>
+		<line linenr="098" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="099" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="100" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="101" indent="" />
+		<line linenr="102" indent="">
+			<comment>* 6 - Base initial money</comment>
+		</line>
+		<line linenr="103" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="104" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="105" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="106" indent="" />
+		<line linenr="107" indent="">
+			<comment>* 7 - Base initial ships</comment>
+		</line>
+		<line linenr="108" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="109" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="110" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="111" indent="" />
+		<line linenr="112" indent="">
+			<comment>* 8 - Allow jumpdrive</comment>
+		</line>
+		<line linenr="113" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="114" indent="">
+			<comment>* $Text = string $Text to integer</comment>
+		</line>
+		<line linenr="115" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="116" indent="" />
+		<line linenr="117" indent="">
+			<comment>* 9 - Allow targeting stations</comment>
+		</line>
+		<line linenr="118" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="119" indent="">
+			<comment>* $Text = string $Text to integer</comment>
+		</line>
+		<line linenr="120" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="121" indent="" />
+		<line linenr="122" indent="">
+			<comment>* 10 - Allow ADS</comment>
+		</line>
+		<line linenr="123" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="124" indent="">
+			<comment>* $Text = string $Text to integer</comment>
+		</line>
+		<line linenr="125" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="126" indent="" />
+		<line linenr="127" indent="">
+			<comment>* 11 - Guild-Player Relations</comment>
+		</line>
+		<line linenr="128" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="129" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="130" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="131" indent="" />
+		<line linenr="132" indent="">
+			<comment>* 12 - Guild money</comment>
+		</line>
+		<line linenr="133" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="134" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="135" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="136" indent="" />
+		<line linenr="137" indent="">
+			<comment>* 13 - Guild target race</comment>
+		</line>
+		<line linenr="138" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="139" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="140" indent="" />
+		<line linenr="141" indent="">
+			<comment>* 14 - Mobile HQ</comment>
+		</line>
+		<line linenr="142" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="143" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="144" indent="" />
+		<line linenr="145" indent="">
+			<comment>* 15 - Destroyer</comment>
+		</line>
+		<line linenr="146" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="147" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="148" indent="" />
+		<line linenr="149" indent="">
+			<comment>* 16 - Initial player-pirate relations</comment>
+		</line>
+		<line linenr="150" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="151" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="152" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="153" indent="" />
+		<line linenr="154" indent="">
+			<comment>* 17 - Peace w Teladis</comment>
+		</line>
+		<line linenr="155" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="156" indent="">
+			<comment>* $Text = string $Text to integer</comment>
+		</line>
+		<line linenr="157" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="158" indent="" />
+		<line linenr="159" indent="">
+			<comment>* 18 - Bounty hunters</comment>
+		</line>
+		<line linenr="160" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="161" indent="">
+			<comment>* $Text = string $Text to integer</comment>
+		</line>
+		<line linenr="162" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="163" indent="" />
+		<line linenr="164" indent="">
+			<comment>* 19 - ADS Wing commands</comment>
+		</line>
+		<line linenr="165" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="166" indent="">
+			<comment>* $Text = string $Text to integer</comment>
+		</line>
+		<line linenr="167" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="168" indent="" />
+		<line linenr="169" indent="">
+			<comment>* 20 - Guild color</comment>
+		</line>
+		<line linenr="170" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="171" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="172" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="173" indent="" />
+		<line linenr="174" indent="">
+			<comment>* Kcnt.Pirate</comment>
+		</line>
+		<line linenr="175" indent="">
+			<var>$count</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>16</var>
+		</line>
+		<line linenr="176" indent="">
+			<text>while</text>
+			<text> </text>
+			<var>$count</var>
+			<text> </text>
+			<text>&gt;</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="177" indent="&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$count</var>
+		</line>
+		<line linenr="178" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="179" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="180" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="181" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="182" indent="" />
+		<line linenr="183" indent="">
+			<comment>* ACC plugin version</comment>
+		</line>
+		<line linenr="184" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="185" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="186" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="187" indent="" />
+		<line linenr="188" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="189" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="190" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="191" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="192" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="193" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="194" indent="">
+			<comment>* BEGIN: Guild Assets</comment>
+		</line>
+		<line linenr="195" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="196" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="197" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="198" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="199" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="200" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="201" indent="" />
+		<line linenr="202" indent="">
+			<comment>* Pleasure Dome</comment>
+		</line>
+		<line linenr="203" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="204" indent="">
+			<comment>* $Text = string $Text to integer</comment>
+		</line>
+		<line linenr="205" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="206" indent="" />
+		<line linenr="207" indent="">
+			<comment>* Pleasure Dome location</comment>
+		</line>
+		<line linenr="208" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="209" indent="">
+			<var>$x</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="210" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="211" indent="">
+			<var>$y</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="212" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$Pleasure.Dome</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[TRUE]</var>
+		</line>
+		<line linenr="213" indent="&#160;">
+			<var>$Sector</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>sector</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<text>universe</text>
+			<text> </text>
+			<text>index</text>
+			<text>:</text>
+			<text> </text>
+			<text>x</text>
+			<text>=</text>
+			<var>$x</var>
+			<text>,</text>
+			<text> </text>
+			<text>y</text>
+			<text>=</text>
+			<var>$y</var>
+		</line>
+		<line linenr="214" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$Sector</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="215" indent="">
+			<text>else</text>
+		</line>
+		<line linenr="216" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>null</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="217" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="218" indent="" />
+		<line linenr="219" indent="">
+			<comment>* Mobile HQ</comment>
+		</line>
+		<line linenr="220" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="221" indent="">
+			<comment>* $Text = string $Text to integer</comment>
+		</line>
+		<line linenr="222" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="223" indent="" />
+		<line linenr="224" indent="">
+			<comment>* M2</comment>
+		</line>
+		<line linenr="225" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="226" indent="">
+			<comment>* $Text = string $Text to integer</comment>
+		</line>
+		<line linenr="227" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="228" indent="" />
+		<line linenr="229" indent="">
+			<comment>* M7 Defenders</comment>
+		</line>
+		<line linenr="230" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="231" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="232" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="233" indent="" />
+		<line linenr="234" indent="">
+			<comment>* Bounty Hunters</comment>
+		</line>
+		<line linenr="235" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="236" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="237" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="238" indent="" />
+		<line linenr="239" indent="">
+			<comment>* Number of Shipyards</comment>
+		</line>
+		<line linenr="240" indent="">
+			<comment>* gosub Line:</comment>
+		</line>
+		<line linenr="241" indent="">
+			<comment>* $Text = string $Text to integer</comment>
+		</line>
+		<line linenr="242" indent="">
+			<comment>* append $Text to array $PirateGuildData</comment>
+		</line>
+		<line linenr="243" indent="" />
+		<line linenr="244" indent="">
+			<comment>* Number of Pirate Bases</comment>
+		</line>
+		<line linenr="245" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="246" indent="">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="247" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="248" indent="">
+			<var>$count</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Text</var>
+		</line>
+		<line linenr="249" indent="" />
+		<line linenr="250" indent="">
+			<text>while</text>
+			<text> </text>
+			<var>$count</var>
+		</line>
+		<line linenr="251" indent="&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$count</var>
+		</line>
+		<line linenr="252" indent="&#160;">
+			<var>$SubData</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>alloc</text>
+			<text>:</text>
+			<text> </text>
+			<text>size</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="253" indent="&#160;" />
+		<line linenr="254" indent="&#160;">
+			<comment>* Name</comment>
+		</line>
+		<line linenr="255" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="256" indent="&#160;" />
+		<line linenr="257" indent="&#160;">
+			<comment>* Hull</comment>
+		</line>
+		<line linenr="258" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="259" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="260" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$SubData</var>
+		</line>
+		<line linenr="261" indent="&#160;" />
+		<line linenr="262" indent="&#160;">
+			<comment>* Boss</comment>
+		</line>
+		<line linenr="263" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="264" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="265" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$SubData</var>
+		</line>
+		<line linenr="266" indent="&#160;" />
+		<line linenr="267" indent="&#160;">
+			<comment>* Jump beacon</comment>
+		</line>
+		<line linenr="268" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="269" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="270" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$SubData</var>
+		</line>
+		<line linenr="271" indent="&#160;" />
+		<line linenr="272" indent="&#160;">
+			<comment>* Owned Fighters</comment>
+		</line>
+		<line linenr="273" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="274" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="275" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$SubData</var>
+		</line>
+		<line linenr="276" indent="&#160;" />
+		<line linenr="277" indent="&#160;">
+			<comment>* Owned lasertowers</comment>
+		</line>
+		<line linenr="278" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="279" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="280" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$SubData</var>
+		</line>
+		<line linenr="281" indent="&#160;" />
+		<line linenr="282" indent="&#160;">
+			<comment>* Owned corvettes</comment>
+		</line>
+		<line linenr="283" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="284" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="285" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$SubData</var>
+		</line>
+		<line linenr="286" indent="&#160;" />
+		<line linenr="287" indent="&#160;">
+			<comment>* Additional shields</comment>
+		</line>
+		<line linenr="288" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="289" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="290" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$SubData</var>
+		</line>
+		<line linenr="291" indent="&#160;" />
+		<line linenr="292" indent="&#160;">
+			<comment>* Fine</comment>
+		</line>
+		<line linenr="293" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="294" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="295" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$SubData</var>
+		</line>
+		<line linenr="296" indent="&#160;" />
+		<line linenr="297" indent="&#160;">
+			<comment>* Fine forgetdate</comment>
+		</line>
+		<line linenr="298" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="299" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="300" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$SubData</var>
+		</line>
+		<line linenr="301" indent="&#160;" />
+		<line linenr="302" indent="&#160;">
+			<comment>* Reward</comment>
+		</line>
+		<line linenr="303" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="304" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="305" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$SubData</var>
+		</line>
+		<line linenr="306" indent="&#160;" />
+		<line linenr="307" indent="&#160;">
+			<comment>* ADS Delay Stop ETA</comment>
+		</line>
+		<line linenr="308" indent="&#160;">
+			<comment>* gosub Line:</comment>
+		</line>
+		<line linenr="309" indent="&#160;" />
+		<line linenr="310" indent="&#160;">
+			<comment>* Money</comment>
+		</line>
+		<line linenr="311" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="312" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>integer</text>
+		</line>
+		<line linenr="313" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$Text</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$SubData</var>
+		</line>
+		<line linenr="314" indent="&#160;">
+			<text> </text>
+		</line>
+		<line linenr="315" indent="&#160;">
+			<comment>* End Object Designation</comment>
+		</line>
+		<line linenr="316" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="317" indent="&#160;" />
+		<line linenr="318" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$SubData</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="319" indent="&#160;" />
+		<line linenr="320" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="321" indent="" />
+		<line linenr="322" indent="" />
+		<line linenr="323" indent="">
+			<text>set</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<var>$Key.Anarkis.Pirate.ImportData</var>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>$PirateGuildData</var>
+		</line>
+		<line linenr="324" indent="" />
+		<line linenr="325" indent="" />
+		<line linenr="326" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="327" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="328" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="329" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="330" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="331" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="332" indent="">
+			<comment>* BEGIN: Global Data Requiring Objects</comment>
+		</line>
+		<line linenr="333" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="334" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="335" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="336" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="337" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="338" indent="">
+			<comment>* =====================================================================</comment>
+		</line>
+		<line linenr="339" indent="" />
+		<line linenr="340" indent="" />
+		<line linenr="341" indent="">
+			<comment>* Raid Requests</comment>
+		</line>
+		<line linenr="342" indent="" />
+		<line linenr="343" indent="">
+			<text>display</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>box</text>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text> </text>
+			<text>'Pirate Guild Data Loaded'</text>
+			<text>,</text>
+			<text> </text>
+			<text>icon</text>
+			<text>=</text>
+			<text> </text>
+			<var>77</var>
+			<text>,</text>
+			<text> </text>
+			<text>timeout</text>
+			<text>=</text>
+			<text> </text>
+			<var>31000</var>
+			<text>,</text>
+			<text> </text>
+			<text>fadeout</text>
+			<text>=</text>
+			<text> </text>
+			<var>32000</var>
+		</line>
+		<line linenr="344" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>2000</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="345" indent="" />
+		<line linenr="346" indent="">
+			<var>$plugin.ID</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'Anarkis.Pirate.PluginID'</text>
+		</line>
+		<line linenr="347" indent="">
+			<var>$desc</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>read</text>
+			<text> </text>
+			<text>text</text>
+			<text>:</text>
+			<text> </text>
+			<text>page</text>
+			<text>=</text>
+			<var>8513</var>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<var>112</var>
+		</line>
+		<line linenr="348" indent="">
+			<text>al</text>
+			<text> </text>
+			<text>engine</text>
+			<text>:</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<text>plugin</text>
+			<text> </text>
+			<var>$plugin.ID</var>
+			<text> </text>
+			<text>description</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<var>$desc</var>
+		</line>
+		<line linenr="349" indent="" />
+		<line linenr="350" indent="">
+			<text>display</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>box</text>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text> </text>
+			<text>'Activate Anarkis plugins in AL menu to complete the import process'</text>
+			<text>,</text>
+			<text> </text>
+			<text>icon</text>
+			<text>=</text>
+			<text> </text>
+			<var>77</var>
+			<text>,</text>
+			<text> </text>
+			<text>timeout</text>
+			<text>=</text>
+			<text> </text>
+			<var>3000</var>
+			<text>,</text>
+			<text> </text>
+			<text>fadeout</text>
+			<text>=</text>
+			<text> </text>
+			<var>3000</var>
+		</line>
+		<line linenr="351" indent="" />
+		<line linenr="352" indent="" />
+		<line linenr="353" indent="" />
+		<line linenr="354" indent="" />
+		<line linenr="355" indent="">
+			<comment>* ======================================</comment>
+		</line>
+		<line linenr="356" indent="" />
+		<line linenr="357" indent="" />
+		<line linenr="358" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="359" indent="" />
+		<line linenr="360" indent="" />
+		<line linenr="361" indent="">
+			<var>Line</var>
+			<text>:</text>
+		</line>
+		<line linenr="362" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>read</text>
+			<text> </text>
+			<text>text</text>
+			<text>:</text>
+			<text> </text>
+			<text>page</text>
+			<text>=</text>
+			<var>$PageNumber</var>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<var>$SubIndex</var>
+		</line>
+		<line linenr="363" indent="&#160;">
+			<text>inc</text>
+			<text> </text>
+			<var>$SubIndex</var>
+		</line>
+		<line linenr="364" indent="">
+			<text>endsub</text>
+		</line>
+		<line linenr="365" indent="" />
+		<line linenr="366" indent="" />
+		<line linenr="367" indent="" />
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="Z.EmpireCopy.AnarkisPirate.Import" />
+			<sval type="int" val="50" />
+			<sval type="string" val="Description" />
+			<sval type="int" val="418" />
+			<sval type="int" val="0" />
+			<sval type="array" size="28">
+				<sval type="string" val="Name" />
+				<sval type="string" val="FileNumber" />
+				<sval type="string" val="PageNumber" />
+				<sval type="string" val="ExportVersion" />
+				<sval type="string" val="SubIndex" />
+				<sval type="string" val="Key.Anarkis.Pirate.ImportRun" />
+				<sval type="string" val="Key.Anarkis.Pirate.ImportData" />
+				<sval type="string" val="Key.Anarkis.Debug" />
+				<sval type="string" val="Key.Anarkis.Pirate.Setup" />
+				<sval type="string" val="Key.Anarkis.Pirate.Kcnt" />
+				<sval type="string" val="Key.Anarkis.ACC.Plugin" />
+				<sval type="string" val="Key.Anarkis.Pirate.Additional.Shields" />
+				<sval type="string" val="Key.Anarkis.Pirate.Boss" />
+				<sval type="string" val="Key.Anarkis.Pirate.Fine" />
+				<sval type="string" val="Key.Anarkis.Pirate.ForgetDate" />
+				<sval type="string" val="Key.Anarkis.Pirate.PleasureDome" />
+				<sval type="string" val="Key.Anarkis.Pirate.Reward" />
+				<sval type="string" val="Key.Anarkis.Money" />
+				<sval type="string" val="Text" />
+				<sval type="string" val="PirateGuildData" />
+				<sval type="string" val="count" />
+				<sval type="string" val="x" />
+				<sval type="string" val="y" />
+				<sval type="string" val="Pleasure.Dome" />
+				<sval type="string" val="Sector" />
+				<sval type="string" val="SubData" />
+				<sval type="string" val="plugin.ID" />
+				<sval type="string" val="desc" />
+			</sval>
+			<sval type="array" size="163">
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="3" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="17" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="151" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Anarkis.Pirate.ImportRun" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="6" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Anarkis.Pirate.ImportData" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="7" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="anarkis.debug" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="8" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="anarkis.pirate.setup" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="9" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="anarkis.kcnt.pirate" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="anarkis.acc.plugin" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="anarkis.pirate.additional.shields" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="anarkis.pirate.boss" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="13" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="anarkis.pirate.fine" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="14" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="anarkis.pirate.forgetdate" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="15" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="anarkis.pirate.pleasuredome" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="16" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="anarkis.pirate.reward" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="17" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="anarkis.money" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="9">
+					<sval type="int" val="1861" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Begin Anarkis Pirate Guild Import" />
+					<sval type="int" val="4" />
+					<sval type="int" val="77" />
+					<sval type="int" val="4" />
+					<sval type="int" val="31000" />
+					<sval type="int" val="4" />
+					<sval type="int" val="32000" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="157" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Anarkis.Pirate.ImportRun" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="157" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="128" />
+					<sval type="int" val="19" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="16" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610591479" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="20" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="15" />
+					<sval type="int" val="2" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="2" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="20" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="77" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="21" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="22" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610588157" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="800" />
+					<sval type="int" val="24" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="21" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="24" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="97" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610574071" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="20" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="128" />
+					<sval type="int" val="25" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1078" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="159" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="111" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="157" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+				</sval>
+				<sval type="array" size="9">
+					<sval type="int" val="1861" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Pirate Guild Data Loaded" />
+					<sval type="int" val="4" />
+					<sval type="int" val="77" />
+					<sval type="int" val="4" />
+					<sval type="int" val="31000" />
+					<sval type="int" val="4" />
+					<sval type="int" val="32000" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2000" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Anarkis.Pirate.PluginID" />
+					<sval type="int" val="26" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="126" />
+					<sval type="int" val="27" />
+					<sval type="int" val="4" />
+					<sval type="int" val="8513" />
+					<sval type="int" val="4" />
+					<sval type="int" val="112" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1024" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="26" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="9">
+					<sval type="int" val="1861" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Activate Anarkis plugins in AL menu to complete the import process" />
+					<sval type="int" val="4" />
+					<sval type="int" val="77" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3000" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3000" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="101" />
+					<sval type="string" val="Line" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="126" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="142" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="1">
+					<sval type="int" val="1168" />
+				</sval>
+			</sval>
+			<sval type="array" size="3">
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="string" val="Name" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="10" />
+					<sval type="string" val="FileNumber" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="10" />
+					<sval type="string" val="PageNumber" />
+				</sval>
+			</sval>
+			<sval type="array" size="207">
+				<sval type="array" size="2">
+					<sval type="int" val="0" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="2" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="3" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="3" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="string" val="LU Version" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Export Version" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="5" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="5" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Do stuff between these lines.  Don't change anything outside of these lines" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Rename this file with the same format, replacing Template with the Name you registered in the setup.Ei.XX" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="string" val="======================================" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="5" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Global variables" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="7" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="8" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Key.Anarkis.Pirate.Plugin = 'anarkis.pirate.plugin'" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="10" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Key.Anarkis.ADS.Setup = 'anarkis.ads.setup'" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="string" val="PG local object variables" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="15" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Key.Anarkis.Pirate.Init.Rel = 'anarkis.pirate.init.rel'" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="15" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Key.Anarkis.Pirate.Old.Rel = 'anarkis.pirate.old.rel'" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="15" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Key.Anarkis.Pirate.OldName = 'anarkis.pirate.oldname'" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="17" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="17" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Other local object variables" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="17" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Key.Anarkis.ADS.Delay.Stop.ETA = 'anarkis.ads.delay.stop.eta'" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="18" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="18" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="20" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="BEGIN: Import Global Data, No Object Reliance" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="20" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Set Anarkis Debug mode" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="22" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="22" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="23" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="string" val="PG plugin version" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="26" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="26" />
+					<sval type="int" val="1" />
+					<sval type="string" val="1 - page.id" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="29" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="29" />
+					<sval type="int" val="1" />
+					<sval type="string" val="2 - enabled" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="30" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Text = string $Text to integer" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="31" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="31" />
+					<sval type="int" val="1" />
+					<sval type="string" val="3 - Guild Strength" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="34" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="34" />
+					<sval type="int" val="1" />
+					<sval type="string" val="4 - Ships per base" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="37" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="37" />
+					<sval type="int" val="1" />
+					<sval type="string" val="5 - Base timer" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="40" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="40" />
+					<sval type="int" val="1" />
+					<sval type="string" val="6 - Base initial money" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="43" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="43" />
+					<sval type="int" val="1" />
+					<sval type="string" val="7 - Base initial ships" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="46" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="46" />
+					<sval type="int" val="1" />
+					<sval type="string" val="8 - Allow jumpdrive" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="47" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Text = string $Text to integer" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="48" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="48" />
+					<sval type="int" val="1" />
+					<sval type="string" val="9 - Allow targeting stations" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="49" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Text = string $Text to integer" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="50" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="50" />
+					<sval type="int" val="1" />
+					<sval type="string" val="10 - Allow ADS" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="51" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Text = string $Text to integer" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="52" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="52" />
+					<sval type="int" val="1" />
+					<sval type="string" val="11 - Guild-Player Relations" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="55" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="55" />
+					<sval type="int" val="1" />
+					<sval type="string" val="12 - Guild money" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="58" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="58" />
+					<sval type="int" val="1" />
+					<sval type="string" val="13 - Guild target race" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="60" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="60" />
+					<sval type="int" val="1" />
+					<sval type="string" val="14 - Mobile HQ" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="62" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="62" />
+					<sval type="int" val="1" />
+					<sval type="string" val="15 - Destroyer" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="64" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="64" />
+					<sval type="int" val="1" />
+					<sval type="string" val="16 - Initial player-pirate relations" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="67" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="67" />
+					<sval type="int" val="1" />
+					<sval type="string" val="17 - Peace w Teladis" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="68" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Text = string $Text to integer" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="69" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="69" />
+					<sval type="int" val="1" />
+					<sval type="string" val="18 - Bounty hunters" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="70" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Text = string $Text to integer" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="71" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="71" />
+					<sval type="int" val="1" />
+					<sval type="string" val="19 - ADS Wing commands" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="72" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Text = string $Text to integer" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="73" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="73" />
+					<sval type="int" val="1" />
+					<sval type="string" val="20 - Guild color" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="76" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="76" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Kcnt.Pirate" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="83" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="83" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="83" />
+					<sval type="int" val="1" />
+					<sval type="string" val="ACC plugin version" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="86" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="86" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="86" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="86" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="86" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="86" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="86" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="86" />
+					<sval type="int" val="1" />
+					<sval type="string" val="BEGIN: Guild Assets" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="86" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="86" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="86" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="86" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="86" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="86" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="86" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="86" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Pleasure Dome" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="87" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Text = string $Text to integer" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="88" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="88" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Pleasure Dome location" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="96" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="97" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="97" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="97" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Mobile HQ" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="98" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Text = string $Text to integer" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="99" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="99" />
+					<sval type="int" val="1" />
+					<sval type="string" val="M2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="100" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Text = string $Text to integer" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="101" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="101" />
+					<sval type="int" val="1" />
+					<sval type="string" val="M7 Defenders" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="104" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="104" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Bounty Hunters" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="107" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="107" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Number of Shipyards" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="107" />
+					<sval type="int" val="1" />
+					<sval type="string" val="gosub Line:" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="107" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Text = string $Text to integer" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="107" />
+					<sval type="int" val="1" />
+					<sval type="string" val="append $Text to array $PirateGuildData" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="107" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="107" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Number of Pirate Bases" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="111" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="114" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="114" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Name" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="115" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="115" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Hull" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="118" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="118" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Boss" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="121" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="121" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Jump beacon" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="124" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="124" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Owned Fighters" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="127" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="127" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Owned lasertowers" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="130" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="130" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Owned corvettes" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="133" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="133" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Additional shields" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="136" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="136" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Fine" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="139" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="139" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Fine forgetdate" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="142" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="142" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Reward" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="145" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="145" />
+					<sval type="int" val="1" />
+					<sval type="string" val="ADS Delay Stop ETA" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="145" />
+					<sval type="int" val="1" />
+					<sval type="string" val="gosub Line:" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="145" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="145" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Money" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="148" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="148" />
+					<sval type="int" val="1" />
+					<sval type="string" val="End Object Designation" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="149" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="150" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="151" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="151" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="151" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="152" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="152" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="152" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="152" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="152" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="152" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="152" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="152" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="152" />
+					<sval type="int" val="1" />
+					<sval type="string" val="BEGIN: Global Data Requiring Objects" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="152" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="152" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="152" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="152" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="152" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="152" />
+					<sval type="int" val="1" />
+					<sval type="string" val="=====================================================================" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="152" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="152" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="152" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Raid Requests" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="152" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="154" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="157" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="158" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="158" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="158" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="158" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="158" />
+					<sval type="int" val="1" />
+					<sval type="string" val="======================================" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="158" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="158" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="159" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="159" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="163" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="163" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="163" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>
